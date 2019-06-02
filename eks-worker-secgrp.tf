@@ -1,3 +1,7 @@
+data "aws_security_group" "eks-cluster-sg" {
+   id = "${aws_security_group.eks-cluster-sg.id}"
+}
+
 resource "aws_security_group" "eks-worker-sg" {
    name 	= "eks-worker-sg"
    description  = "Security Group for all worker nodes in the cluster"
@@ -24,7 +28,7 @@ resource "aws_security_group_rule" "eks-worker-ingress-self" {
    from_port		= 0
    protocol		= "-1"
    security_group_id	= "${aws_security_group.eks-worker-sg.id}"
-   source_security_group_id = "${aws_secruity_group.eks-worker-sg.id}"
+   source_security_group_id = "${aws_security_group.eks-worker-sg.id}"
    to_port		= 65535
    type			= "ingress"
 }
@@ -34,7 +38,7 @@ resource "aws_security_group_rule" "eks-worker-ingress-cluster" {
    from_port		= 1025
    protocol		= "tcp"
    security_group_id	="${aws_security_group.eks-worker-sg.id}"
-   source_security_group_id = "${aws_secruity_group.eks-cluster-sg.id}"
+   source_security_group_id = "${data.aws_security_group.eks-cluster-sg.id}"
    to_port		= 65535
    type			= "ingress"
 }

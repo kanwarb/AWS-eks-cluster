@@ -22,17 +22,17 @@ resource "aws_iam_policy_attachment"  "eks-worker-role-AmazonEKSWorkerNodePolicy
     role	= "${aws_iam_role.eks-worker-role.name}"
  }
 
-resource "aws_iam_policy_attachement  "eks-worker-role-AmazonEKS_CNI_Policy" {
+resource "aws_iam_policy_attachement"  "eks-worker-role-AmazonEKS_CNI_Policy" {
   policy_arn 	= "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
   role		= "${aws_iam_role.eks-worker-role.name}"
 }
 
 resource "aws_iam_policy_attachment" "eks-worker-role-AmazonEC2ContainerRegistryReadOnly" {
   policy_arn 	= "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
-  role		= "${aws.iam_role.eks-worker-role.name}"	
+  role		= "${aws_iam_role.eks-worker-role.name}"	
 }
 
-resource aws_iam_instance_profile"  "eks-instance-profile" {
+resource "aws_iam_instance_profile"  "eks-instance-profile" {
    name = "eks-instance-profile"
    role = "${aws_iam_role.eks-worker-role.name}"
 }
