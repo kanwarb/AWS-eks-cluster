@@ -12,4 +12,14 @@
      -  Attach roles to policy with EC2 assume role
 
 
+####   Setup a Staging and Production directory and use module to reference the DRY(Don't Repeat Yourself) code 
+
+     provider "aws"  {
+        "region" = "us-east-1"
+    	}
+
+     module "eks-cluster-master" {
+       source = "/root/devops/modules/services/eks-cluster"
+    	}
+
 Reference Document for this deployment is https://learn.hashicorp.com/terraform/aws/eks-intro
