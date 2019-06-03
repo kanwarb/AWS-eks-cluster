@@ -1,8 +1,8 @@
 resource "aws_iam_role" "eks-worker-role"  {
   name = "eks-worker-role"
 
-  assume_role_policy = <<POLICY
-  {
+assume_role_policy = <<POLICY
+{
     "Version": "2012-10-17",
     "Statement":  [
       {
@@ -13,7 +13,7 @@ resource "aws_iam_role" "eks-worker-role"  {
         "Action": "sts:AssumeRole"
       }
     ]
-  }
+}
   POLICY
 }
 

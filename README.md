@@ -19,7 +19,14 @@
     	}
 
      module "eks-cluster-master" {
-       source = "/root/devops/modules/services/eks-cluster"
+       source = ${path-to-modules}/services/eks-cluster"
     	}
 
+### AWS EKS Cluster
+![Aws EKS Cluster provisioned](images/aws-eks-cluster.png)
+
+### Deployment Log on Provisioner
+![Terraform Deployment Log][images/deployment.png)
+
+### References for module
 Reference Document for this deployment is https://learn.hashicorp.com/terraform/aws/eks-intro
