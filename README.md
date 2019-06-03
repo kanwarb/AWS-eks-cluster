@@ -23,10 +23,10 @@
     	}
 
 ### AWS EKS Cluster
-![Aws EKS Cluster provisioned](images/aws-eks-cluster.png)
+![Aws EKS Cluster provisioned](images/deployment.png)
 
 ### Deployment Log on Provisioner
-![Terraform Deployment Log][images/deployment.png)
+![Terraform Deployment Log](images/aws-eks-cluster.png)
 
 ### References for module
 Reference Document for this deployment is https://learn.hashicorp.com/terraform/aws/eks-intro
