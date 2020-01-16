@@ -4,7 +4,7 @@ resource "aws_autoscaling_group" "eks-worker-asg" {
   max_size		= 2
   min_size		= 1
   name			= "eks-worker-asg"
-  vpc_zone_identifier	= ["${aws_subnet.eks-subnet.*.id}"]
+  vpc_zone_identifier	= "${aws_subnet.eks-subnet.*.id}"
 
   tag {
 	key			= "Name"
